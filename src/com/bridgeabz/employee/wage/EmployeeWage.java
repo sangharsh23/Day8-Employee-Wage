@@ -3,7 +3,7 @@ package com.bridgeabz.employee.wage;
 public class EmployeeWage {
 	public static final int Full_TIME_IS = 1;
 	public static final int PART_TIME_IS = 2;
-	public static double empCheck = 0;
+	public static int empCheck;
 	public static int empHrs;
 	public static final int EMP_Wage_Per_Hour = 20;
 
@@ -15,14 +15,17 @@ public class EmployeeWage {
 
 	// 1) check employee is present or absent
 	public static void presentOrAbsent() {
-		empCheck = Math.floor(Math.random() * 10) % 3;
-		if (empCheck == Full_TIME_IS) {
+		empCheck = (int) Math.floor(Math.random() * 10) % 3;
+		switch (empCheck) {
+		case 1 : 
 			System.out.println("Employee is full time present");
 			empHrs = 8;
-		} else if (empCheck == PART_TIME_IS) {
+			break;
+			case 2 : 
 			System.out.println("Employee is part time present");
 			empHrs = 4;
-		} else {
+			break;
+		default :
 			System.out.println("Employee is absent");
 		}
 	}
